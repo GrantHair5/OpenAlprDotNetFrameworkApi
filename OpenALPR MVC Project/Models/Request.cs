@@ -2,6 +2,6 @@
 {
     public class Request
     {
-        public string ImageUrl { get; set; }
+        public string Image { get; set; }
     }
 }

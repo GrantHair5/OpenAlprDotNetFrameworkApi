@@ -14,16 +14,17 @@ namespace OpenALPR_MVC_Project.Controllers
         {
             var requestId = Guid.NewGuid();
 
-            var data = File.ReadAllBytes(request.ImageUrl);
+            var filePath = $"C:\\Users\\e0058369\\Desktop\\OpenAlprDotNetFrameworkApi\\{requestId}.jpg";
+            File.WriteAllBytes(filePath, Convert.FromBase64String(request.Image));
 
-            using (var image = Image.FromStream(new MemoryStream(data)))
-            {
-                image.Save("output.png", ImageFormat.Png);  // Or Png
-            }
-
-            var results = OpenALPRHelper.Recognize(request.ImageUrl, "gb");
+            var results = OpenALPRHelper.Recognize(filePath, "gb");
 
             var model = new RegPlateVm { Reg = results.Plates[0].TopNPlates[0].Characters };
+
+            if (File.Exists($"C:\\Users\\e0058369\\Desktop\\OpenAlprDotNetFrameworkApi\\{requestId}.jpg"))
+            {
+                File.Delete($"C:\\Users\\e0058369\\Desktop\\OpenAlprDotNetFrameworkApi\\{requestId}.jpg");
+            }
 
             return model;
         }
