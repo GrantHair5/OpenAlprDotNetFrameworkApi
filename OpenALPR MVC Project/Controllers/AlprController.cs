@@ -15,7 +15,7 @@ namespace OpenALPR_MVC_Project.Controllers
         {
             using (var temp = new TempFileCollection("C:\\Users\\e0058369\\Desktop\\OpenAlprDotNetFrameworkApi\\", false))
             {
-                string file = temp.AddExtension("jpg");
+                var file = temp.AddExtension("jpg");
                 File.WriteAllBytes(file, Convert.FromBase64String(request.Image));
 
                 var results = OpenALPRHelper.Recognize(file, "gb");
