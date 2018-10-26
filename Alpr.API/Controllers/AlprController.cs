@@ -9,7 +9,7 @@ namespace OpenAlprDotNetFrameworkApi.Controllers
 {
     public class AlprController : ApiController
     {
-        public RegPlateVm Post([FromBody]Request request)
+        public IHttpActionResult Post([FromBody]Request request)
         {
             var asm = Assembly.GetExecutingAssembly();
             var path = Path.GetDirectoryName(asm.Location);
@@ -20,10 +20,14 @@ namespace OpenAlprDotNetFrameworkApi.Controllers
                 File.WriteAllBytes(file, Convert.FromBase64String(request.Base64Image));
 
                 var results = OpenALPRHelper.Recognize(file, "gb");
+                if (results == null)
+                {
+                    return NotFound();
+                }
 
                 var model = new RegPlateVm { Registration = results.Plates[0].TopNPlates[0].Characters };
 
-                return model;
+                return Ok(model);
             }
         }
     }
