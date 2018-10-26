@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26228.4
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenALPR MVC Project", "OpenALPR MVC Project\OpenALPR MVC Project.csproj", "{DF1D2581-29C2-4F08-8C12-1A4A55FC3A7D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Alpr.API", "Alpr.API\Alpr.API.csproj", "{DF1D2581-29C2-4F08-8C12-1A4A55FC3A7D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -30,5 +30,8 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {19372380-FEC6-4A54-9AB9-2929852C68C8}
 	EndGlobalSection
 EndGlobal

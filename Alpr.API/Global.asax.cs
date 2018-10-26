@@ -2,7 +2,7 @@
 using System.Web.Mvc;
 using System.Web.Routing;
 
-namespace OpenALPR_MVC_Project
+namespace OpenAlprDotNetFrameworkApi
 {
     public class MvcApplication : System.Web.HttpApplication
     {
