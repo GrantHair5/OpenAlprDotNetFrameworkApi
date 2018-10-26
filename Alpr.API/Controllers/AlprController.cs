@@ -1,6 +1,7 @@
 ﻿using System;
 using System.CodeDom.Compiler;
 using System.IO;
+using System.Reflection;
 using System.Web.Http;
 using OpenAlprDotNetFrameworkApi.Models;
 
@@ -10,7 +11,10 @@ namespace OpenAlprDotNetFrameworkApi.Controllers
     {
         public RegPlateVm Post([FromBody]Request request)
         {
-            using (var temp = new TempFileCollection("C:\\Users\\e0058369\\Desktop\\OpenAlprDotNetFrameworkApi\\", false))
+            var asm = Assembly.GetExecutingAssembly();
+            var path = Path.GetDirectoryName(asm.Location);
+
+            using (var temp = new TempFileCollection(path, false))
             {
                 var file = temp.AddExtension("jpg");
                 File.WriteAllBytes(file, Convert.FromBase64String(request.Base64Image));
