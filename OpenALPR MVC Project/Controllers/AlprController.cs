@@ -1,4 +1,5 @@
 ﻿using System;
+using System.CodeDom.Compiler;
 using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
@@ -12,21 +13,17 @@ namespace OpenALPR_MVC_Project.Controllers
     {
         public RegPlateVm Post([FromBody]Request request)
         {
-            var requestId = Guid.NewGuid();
-
-            var filePath = $"C:\\Users\\e0058369\\Desktop\\OpenAlprDotNetFrameworkApi\\{requestId}.jpg";
-            File.WriteAllBytes(filePath, Convert.FromBase64String(request.Image));
-
-            var results = OpenALPRHelper.Recognize(filePath, "gb");
-
-            var model = new RegPlateVm { Reg = results.Plates[0].TopNPlates[0].Characters };
-
-            if (File.Exists($"C:\\Users\\e0058369\\Desktop\\OpenAlprDotNetFrameworkApi\\{requestId}.jpg"))
+            using (var temp = new TempFileCollection("C:\\Users\\e0058369\\Desktop\\OpenAlprDotNetFrameworkApi\\", false))
             {
-                File.Delete($"C:\\Users\\e0058369\\Desktop\\OpenAlprDotNetFrameworkApi\\{requestId}.jpg");
-            }
+                string file = temp.AddExtension("jpg");
+                File.WriteAllBytes(file, Convert.FromBase64String(request.Image));
 
-            return model;
+                var results = OpenALPRHelper.Recognize(file, "gb");
+
+                var model = new RegPlateVm { Reg = results.Plates[0].TopNPlates[0].Characters };
+
+                return model;
+            }
         }
     }
 }
