@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace OpenALPR_MVC_Project
+namespace OpenAlprDotNetFrameworkApi
 {
     public class WebApiConfig
     {

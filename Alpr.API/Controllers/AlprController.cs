@@ -1,13 +1,10 @@
 ﻿using System;
 using System.CodeDom.Compiler;
-using System.Drawing;
-using System.Drawing.Imaging;
 using System.IO;
-using System.Net;
 using System.Web.Http;
-using OpenALPR_MVC_Project.Models;
+using OpenAlprDotNetFrameworkApi.Models;
 
-namespace OpenALPR_MVC_Project.Controllers
+namespace OpenAlprDotNetFrameworkApi.Controllers
 {
     public class AlprController : ApiController
     {

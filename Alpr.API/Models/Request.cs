@@ -1,4 +1,4 @@
-﻿namespace OpenALPR_MVC_Project.Models
+﻿namespace OpenAlprDotNetFrameworkApi.Models
 {
     public class Request
     {
