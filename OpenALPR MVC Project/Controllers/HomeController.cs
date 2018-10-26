@@ -15,7 +15,7 @@ namespace OpenALPR_MVC_Project.Controllers
         {
             AlprResultsNet results = OpenALPRHelper.Recognize(@"C:\Users\e0058369\Desktop\OpenAlprMVC\OpenALPR MVC Project\samples\test.jpg");
 
-            var model = new RegPlateVm { Reg = results.Plates[0].TopNPlates[0].Characters };
+            var model = new RegPlateVm { Registration = results.Plates[0].TopNPlates[0].Characters };
             return View(model);
         }
     }
