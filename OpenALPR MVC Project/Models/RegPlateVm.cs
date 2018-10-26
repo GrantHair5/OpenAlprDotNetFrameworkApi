@@ -2,6 +2,6 @@
 {
     public class RegPlateVm
     {
-        public string Reg { get; set; }
+        public string Registration { get; set; }
     }
 }
