@@ -10,7 +10,6 @@ namespace OpenALPR_MVC_Project
         {
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register); //I AM THE 2nd
-            RouteConfig.RegisterRoutes(RouteTable.Routes);
         }
     }
 }

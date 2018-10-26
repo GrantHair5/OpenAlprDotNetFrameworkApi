@@ -2,6 +2,6 @@
 {
     public class Request
     {
-        public string Image { get; set; }
+        public string Base64Image { get; set; }
     }
 }
