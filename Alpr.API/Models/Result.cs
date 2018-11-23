@@ -1,7 +1,8 @@
 ﻿namespace OpenAlprDotNetFrameworkApi.Models
 {
-    public class RegPlateVm
+    public class Result
     {
         public string Registration { get; set; }
+        public float Confidence { get; set; }
     }
 }

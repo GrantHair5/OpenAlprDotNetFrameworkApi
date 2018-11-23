@@ -4,6 +4,7 @@ using System.IO;
 using System.Reflection;
 using System.Web.Http;
 using OpenAlprDotNetFrameworkApi.Models;
+using System.Linq;
 
 namespace OpenAlprDotNetFrameworkApi.Controllers
 {
@@ -19,15 +20,27 @@ namespace OpenAlprDotNetFrameworkApi.Controllers
                 var file = temp.AddExtension("jpg");
                 File.WriteAllBytes(file, Convert.FromBase64String(request.Base64Image));
 
-                var results = OpenALPRHelper.Recognize(file, "gb");
-                if (results == null)
+                try
                 {
-                    return NotFound();
+                    var results = OpenALPRHelper.Recognize(file, "gb");
+
+                    if (results == null || !results.Plates.Any())
+                    {
+                        return NotFound();
+                    }
+
+                    var model = new Result
+                    {
+                        Registration = results.Plates[0].TopNPlates[0].Characters,
+                        Confidence = results.Plates[0].TopNPlates[0].OverallConfidence
+                    };
+
+                    return Ok(model);
                 }
-
-                var model = new RegPlateVm { Registration = results.Plates[0].TopNPlates[0].Characters };
-
-                return Ok(model);
+                catch (Exception ex)
+                {
+                    return BadRequest(ex.Message);
+                }
             }
         }
     }
