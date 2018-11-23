@@ -1,1 +1,1 @@
-﻿<%@ Application Codebehind="Global.asax.cs" Inherits="OpenAlprDotNetFrameworkApi.MvcApplication" Language="C#" %>
+﻿<%@ Application CodeBehind="Global.asax.cs" Inherits="EnginDotNet.MvcApplication" Language="C#" %>
