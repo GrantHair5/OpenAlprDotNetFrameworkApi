@@ -1,12 +1,12 @@
 ﻿using System;
 using System.CodeDom.Compiler;
 using System.IO;
+using System.Linq;
 using System.Reflection;
 using System.Web.Http;
-using OpenAlprDotNetFrameworkApi.Models;
-using System.Linq;
+using EnginDotNet.Models;
 
-namespace OpenAlprDotNetFrameworkApi.Controllers
+namespace EnginDotNet.Controllers
 {
     public class AlprController : ApiController
     {
@@ -22,7 +22,7 @@ namespace OpenAlprDotNetFrameworkApi.Controllers
 
                 try
                 {
-                    var results = OpenALPRHelper.Recognize(file, "gb");
+                    var results = OpenAlprHelper.Recognize(file, "gb");
 
                     if (results == null || !results.Plates.Any())
                     {

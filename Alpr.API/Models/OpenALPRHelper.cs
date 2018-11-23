@@ -1,8 +1,8 @@
 ﻿using openalprnet;
 
-namespace OpenAlprDotNetFrameworkApi.Models
+namespace EnginDotNet.Models
 {
-    public class OpenALPRHelper
+    public class OpenAlprHelper
     {
         private static string OpenALPRConfigPath = "bin/openalpr.conf";
         private static string OpenALPRRuntimeDataPath = "bin/runtime_data";
