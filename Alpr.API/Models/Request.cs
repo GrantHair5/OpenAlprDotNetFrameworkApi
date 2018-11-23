@@ -1,4 +1,4 @@
-﻿namespace OpenAlprDotNetFrameworkApi.Models
+﻿namespace EnginDotNet.Models
 {
     public class Request
     {

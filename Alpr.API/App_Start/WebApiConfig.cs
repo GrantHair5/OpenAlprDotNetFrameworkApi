@@ -1,6 +1,6 @@
 ﻿using System.Web.Http;
 
-namespace OpenAlprDotNetFrameworkApi
+namespace EnginDotNet
 {
     public class WebApiConfig
     {
