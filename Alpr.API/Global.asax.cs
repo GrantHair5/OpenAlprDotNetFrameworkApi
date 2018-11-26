@@ -1,5 +1,6 @@
 ﻿using System.Web.Http;
 using System.Web.Mvc;
+using System.Linq;
 
 namespace EnginDotNet
 {
@@ -8,7 +9,7 @@ namespace EnginDotNet
         protected void Application_Start()
         {
             AreaRegistration.RegisterAllAreas();
-            GlobalConfiguration.Configure(WebApiConfig.Register); //I AM THE 2nd
+            GlobalConfiguration.Configure(WebApiConfig.Register);
         }
     }
 }
