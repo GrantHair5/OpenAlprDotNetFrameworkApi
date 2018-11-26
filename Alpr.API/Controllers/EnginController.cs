@@ -8,8 +8,13 @@ using EnginDotNet.Models;
 
 namespace EnginDotNet.Controllers
 {
-    public class AlprController : ApiController
+    public class EnginController : ApiController
     {
+        public IHttpActionResult Get()
+        {
+            return Ok("Engin is alive and kicking");
+        }
+
         public IHttpActionResult Post([FromBody]Request request)
         {
             var asm = Assembly.GetExecutingAssembly();

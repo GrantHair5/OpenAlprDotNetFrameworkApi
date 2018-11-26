@@ -12,7 +12,7 @@ namespace EnginDotNet.Models
             try
             {
                 // Initialize OpenALPR Library
-                var alpr = new AlprNet(country, GetMapPath(OpenALPRConfigPath), GetMapPath(OpenALPRRuntimeDataPath));
+                var alpr = new openalprnet.AlprNet(country, GetMapPath(OpenALPRConfigPath), GetMapPath(OpenALPRRuntimeDataPath));
                 if (!alpr.IsLoaded())
                 {
                     // OpenALPR failed to load!
