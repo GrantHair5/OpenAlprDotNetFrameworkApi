@@ -135,6 +135,7 @@
   <ItemGroup>
     <Content Include="packages.config" />
     <Content Include="openalpr.conf" />
+    <None Include="Properties\PublishProfiles\EnginAlprAPI - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\EnginDotNetAPI - Web Deploy.pubxml" />
     <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Web.Debug.config">
