@@ -8,4 +8,8 @@ A .NET Framework API project that will return a registration from base64 string 
 `Open in Visual Studio or Rider etc` 
 `Build and Run` 
 
+## DLLS Required 
+
+https://github.com/GrantHair5/Open-ALPR-DLLS
+
 
